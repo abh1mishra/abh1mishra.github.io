@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delayed Lines</title>
+    <style>
+        .line {
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-family: sans-serif;
+        }
+
+        .line-1 { animation-delay: 0s; color: red; }
+        .line-2 { animation-delay: 3.5s; color: red; }
+        .line-3 { animation-delay: 7s; color: blue; }
+        .line-4 { animation-delay: 9s; color: blue; }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="line line-1">Hi there, you are being under arrest for accepting bribe.</div>
+    <div class="line line-2">Officer Dimitri and Abhishek are on their way for the arrest, reveal your location.</div>
+    <div class="line line-3">Kidding, you are under arrest for being too good :)</div>
+    <div class="line line-4">Happy birthday! :):).</div>
+</body>
+</html>

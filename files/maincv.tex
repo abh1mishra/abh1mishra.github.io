@@ -1,0 +1,283 @@
+\documentclass[a4paper,11pt]{article}
+
+% ---------- Packages ----------
+\usepackage[margin=1in, left=0.7in, right=0.7in, top=0.6in, bottom=0.6in]{geometry}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{multicol}
+\usepackage{parskip}
+
+% ---------- Colors ----------
+\definecolor{linkblue}{RGB}{0,0,128}
+\definecolor{ruleblue}{RGB}{52,101,164}
+
+% ---------- Hyperref setup ----------
+\hypersetup{
+    colorlinks=true,
+    linkcolor=linkblue,
+    urlcolor=linkblue,
+    citecolor=linkblue
+}
+
+% ---------- Section formatting ----------
+\titleformat{\section}
+  {\large\bfseries}
+  {}
+  {0em}
+  {}
+  [\vspace{0.15em}\hrule\vspace{0.3em}]
+
+\titlespacing*{\section}{0pt}{2.4em}{0.2em}
+
+% ---------- Custom commands ----------
+\newcommand{\cventry}[3]{%
+  \noindent
+  \begin{tabularx}{\textwidth}{@{}>{\small\raggedright\arraybackslash}p{2.2cm}|@{\hspace{0.4cm}}X@{}}
+    #1 & \textbf{#2} \\
+    & #3
+  \end{tabularx}\vspace{0.3em}
+}
+
+\newcommand{\cventrynobar}[3]{%
+  \noindent
+  \begin{tabularx}{\textwidth}{@{}>{\small\raggedright\arraybackslash}p{2.2cm}@{\hspace{0.4cm}}X@{}}
+    #1 & \textbf{#2} \\
+    & #3
+  \end{tabularx}\vspace{0.3em}
+}
+
+% Use blue colored vertical bar via colortbl !-column
+\usepackage{colortbl}
+\newcolumntype{I}{!{\color{ruleblue}\vrule width 0.5pt}}
+\newcommand{\cventryblue}[3]{%
+  \noindent
+  \begin{tabularx}{\textwidth}{@{}>{\small\raggedright\arraybackslash}p{2.2cm}I@{\hspace{0.4cm}}X@{}}
+    #1 & \textbf{#2} \\
+    & #3
+  \end{tabularx}\vspace{0.3em}
+}
+
+% Counters for numbered entries
+\newcounter{projectnum}
+\newcounter{talknum}
+\newcounter{reviewnum}
+
+% Project entry: #1=title, #2=bullet points, #3=label (e.g. Collaborators/Supervisor), #4=names, #5=paper
+\newcommand{\projectentry}[5]{%
+  \stepcounter{projectnum}
+  \vspace{0.5em}\noindent
+  {\bfseries \theprojectnum.\ #1}\par\vspace{-0.3em}
+  \begin{itemize}[leftmargin=1.2em, itemsep=0pt, parsep=0pt, topsep=0.15em]
+    #2
+  \end{itemize}\vspace{-0.2em}
+  \textit{#3:} #4\par
+  \textit{Paper:} #5\par\vspace{0.4em}
+}
+
+% Talk entry: #1=conference name, #2=date & location, #3=talk title
+\newcommand{\talkentry}[3]{%
+  \stepcounter{talknum}
+  \vspace{0.4em}\noindent
+  {\thetalknum.\ #1}, #2\par\vspace{0.1em}
+  \noindent \textit{#3}\par\vspace{0.4em}
+}
+
+% Review entry: #1=journal name, #2=paper title
+\newcommand{\reviewentry}[2]{%
+  \stepcounter{reviewnum}
+  \vspace{0.4em}\noindent
+  {\thereviewnum.\ \bfseries #1}\par\vspace{0.1em}
+  \noindent\textit{#2}\par\vspace{0.4em}
+}
+
+% No page numbers
+\pagestyle{empty}
+
+% ---------- Document ----------
+\begin{document}
+
+% ---------- Title ----------
+\begin{center}
+  {\large\bfseries Curriculum Vitae}\\[0.3em]
+  {\LARGE Abhishek Mishra}
+\end{center}
+
+\vspace{0.3em}
+
+% ---------- Contact Info ----------
+\noindent
+\begin{tabularx}{\textwidth}{@{}X r@{}}
+  PhD researcher, & Email: \href{mailto:abhishek.mishra@ulb.be}{abhishek.mishra@ulb.be} \\
+  Laboratoire d'Information Quantique, & \href{mailto:abhisheksoloabh@gmail.com}{abhisheksoloabh@gmail.com} \\
+  Université Libre de Bruxelles, Belgium. & Website: \href{https://abh1mishra.github.io}{\textbf{https://abh1mishra.github.io}} \\
+\end{tabularx}
+
+% ---------- Education ----------
+\section*{Education}
+\cventryblue{Oct 2022 -- Cont.}{Université Libre de Bruxelles}{%
+  PhD in Quantum Information\newline
+  Supervisor: Prof.\ Stefano Pironio
+}
+
+\cventryblue{Aug 2017 -- Jun 2022}{Indian Institute of Science Education and Research, Kolkata}{%
+  BS-MS Dual Degree\,, MS:\,\textnormal{8.9/10 CGPA} \newline
+  Thesis title: \textit{QKD security proofs and Device-Independent Certification.}\newline
+  Thesis supervisors: Prof.\ Guruprasad Kar \& Dr. Ramij Rahaman, ISI Kolkata.
+}
+
+% \cventryblue{2015 -- 2017}{D.A.V Public School Chandrasekharpur, Bhubaneshwar}{%
+%   Higher Secondary,\ \ Science(Physics,Chemistry,Maths): 95\%
+% }
+
+% ---------- Research Interests ----------
+\section*{Research Interests}
+
+\begin{center}
+Non-commutative Polynomial Optimization, Quantum Cryptography, Non-commutative Algebra
+\end{center}
+
+% ---------- Skills ----------
+\section*{Skills}
+Julia, NumPy, SciPy, Python, C, Java, Origin, Probability Theory, Linear Algebra, Quantum Information, Convex Optimization, Semi-definite Programming,
+Mathematica, App Development, Blockchain.
+
+
+% ---------- QIP Projects ----------
+\section*{Scientific Projects \& Publications}
+\setcounter{projectnum}{0}
+\projectentry{Partially-commutative Polynomial Optimization}{
+  \item Introduced a unified framework interpolating between commutative and non-commutative polynomial optimization, using Gr\"obner basis theory to significantly reduce the complexity of the optimization.
+  \item Established foundations of partially-commutative Gr\"obner bases and derived explicit bases for a broad class of problems arising in quantum information.
+  \item Developed efficient normal-form algorithm for trace polynomial optimization, superseding prior heuristic approaches.
+}{Collaborators}{Dr. Moisés Bermejo Morán, Dr. Stefano Pironio}{To be published soon}
+
+\projectentry{PCPOP : A Julia library for polynomial optimization}{\item Implements normal-form algorithms introduced prior. User-friendly and versatile interface to solve a wide range of polynomial optimization problems with support of sparsity, symmetrization and built-in functions for QKD protocols. \item Efficient and general polynomial library support for Julia. \item Benchmarked against top libraries like OSCAR, QuantumNPA, Ncpol2sdpa etc.\ in terms of efficiency and mathematical rigour.}{Collaborator}{Dr. Moisés Bermejo Morán}{To be published soon,  \href{https://github.com/abh1mishra/PCPOP/tree/main}{Library Link}}
+
+\projectentry{Semi-device Independent QKD}{\item Proposed secure QKD protocols using the restricted-information and restricted-distrust framework in prepare-and-measure scenarios; built numerical framework to demonstrate their robustness. \item Investigating efficient QKD protocols under the basis-independence assumption. }{Collaborators}{Dr. Michele Masini, Dr. Armin Tavakoli, Dr. Stefano Pironio, Dr. Chirag Srivastava}{Two papers To be published soon.}
+
+\projectentry{Transmitter-Device-Independent QKD}{\item Proof-of-principle demonstration of 1Sided Device-Independent QKD over 140km. }{Collaborators}{Dr. Qiang Zeng}{Sent to PRL}
+
+% \projectentry{Master Thesis in Quantum Information (Aug 2021--May 2022)}{
+%   \item Understanding the security proof of the BB84 Protocol.
+% }{Supervisor}{Prof.\ Guruprasad Kar}{To be published soon}
+
+% \projectentry{Independent Study in Quantum Optics (Aug -- Dec 2021)}{
+%   \item Studied Quantum Langevin and Master equations for understanding open quantum systems.
+%   \item Worked on Universal Quantum Computation using Continuous Variables.
+% }{Supervisor}{Prof.\ Chiranjib Mitra -- IISER Kolkata}{--}
+
+\projectentry{Device-Independent Certification (Part of master thesis)}{
+  \item Proved robustness of self-testing of genuine multipartite entanglement.
+  \item Built a library for solving NPA hierarchy for any Bell scenario.
+}{Collaborator}{Dr.\ Ramij Rahaman}{\href{https://journals.aps.org/pra/abstract/10.1103/PhysRevA.110.L010401}{Self-testing of genuine multipartite entangled states without network assistance}}
+
+
+% ---------- Contributed Talks ----------
+\section*{Contributed Talks \& Posters}
+\setcounter{talknum}{0}
+\talkentry{828. WE-Heraeus-Seminar on Operator Theory and Polynomial Optimization in Quantum Information Theory}{March 2025, Physikzentrum Bad Honnef}{\textbf{Talk : }Partially-commutative Polynomial Optimization}
+
+\talkentry{Quantum Redemption}{Aug 2024, Mehedeby}{\textbf{Talk : }Partially-commutative Polynomial Optimization}
+
+\talkentry{VERIqTAS workshop}{Mar 2026, Lyon [Accepted]}{\textbf{Talk : }Semi-Device-Independent Quantum Key Distribution Secure under Information and Distrust Assumptions}
+
+\talkentry{POP23 -- Future Trends in Polynomial Optimization}{Nov 2023, LAAS-CNRS, Toulouse}{\textbf{Poster : } \href{https://homepages.laas.fr/henrion/pop23/Bermejo.pdf}{Partially commuting Computations}}
+
+\talkentry{QCRYPT 2024}{Sep 2024, Vigo}{\textbf{Poster : } Partially commuting Computations}
+\talkentry{IQOQI Summer School}{Sep 2024, Vienna \& Innsbruck}{\textbf{Poster : } Partially commuting Computations}
+\talkentry{YQIS 2025}{Oct 2025, ICFO, Barcelona}{\textbf{Poster : } Partially-commutative Polynomial Optimization}
+
+% % ---------- Contributed Posters ----------
+% \section*{Contributed Posters}
+% \setcounter{talknum}{0}
+% \talkentry{POP23 - Future Trends in Polynomial OPtimization}{Nov 2023, LAAS-CNRS, Toulouse}{\href{https://homepages.laas.fr/henrion/pop23/Bermejo.pdf}{Partially commuting Computations}}
+
+% \talkentry{QCRYPT 2024}{Sep 2024, Vigo}{Partially-commutative Polynomial Optimization}
+
+% \talkentry{YQIS 2025}{Oct 2025, ICFO, Barcelona}{Partially-commutative Polynomial Optimization}
+% \talkentry{ICQIF 2022, Feb 2022, ISI Kolkata}{Talk title here}
+
+\section*{Peer-review of Journals}
+\setcounter{reviewnum}{0}
+Reviewer for international journals, including \textbf{Quantum} and  Elsevier's \textbf{Conmputer Physics Communications}.
+% \newpage
+
+% % ---------- Internships ----------
+% \section*{Internships}
+
+% \cventryblue{Feb--July 2021}{Internship In Quantum Information}{%
+%   Prof.\ Guruprasad Kar -- ISI Kolkata\newline
+%   A study project where I learned about mixed-state entanglement and
+%   quantum-communication, local distinguishability of pure orthogonal states,
+%   quantum random access codes and no masking theorem. It then concluded
+%   with a summer school on Quantum Foundations.
+% }
+
+% \cventryblue{Summer 2019}{Study of Mesoscopic Systems Using Stochastic Thermodynamics}{%
+%   Dr.\ Prabhakar Bhimalapuram -- IIIT Hyderabad\newline
+%   Learned about the Langevin equation and Markov chain and how to use them
+%   to model stochastic systems. Also learned various statistical tests like the KS
+%   test to compare the relevant computed plots to empirical data.
+% }
+
+% \cventryblue{Summer 2018}{Study of Nano-scale Properties of Gold colloid and Fractals}{%
+%   Prof.\ Anushree Roy -- IIT Kharagpur\newline
+%   Learned the usage and basics of Raman Spectroscopy and how to analyze
+%   microscope images using ImageJ to determine fractal parameters. Developed a
+%   program that fits the image to existing protein growth models and analyzed
+%   the gold colloid growth pattern in different media for bio-medical applications.
+% }
+
+% % ---------- Relevant Courses ----------
+% \section*{Relevant Courses}
+
+% \cventryblue{}{Physics}{%
+%   \textnormal{Quantum Information, Quantum Mechanics(I,II,III), Atomic \&\ Optical Physics}
+% }
+% \vspace{-0.5em}
+% \cventryblue{}{Mathematics}{%
+%   \textnormal{Linear algebra, Group Theory, Analysis(I,II), Mathematical Physics}
+% }
+\section*{Research visits}
+\cventryblue{Nov-Dec 2025}{Lund university, Sweden}{
+  Research visit in the group of Dr. Armin Tavakoli.
+}
+\cventryblue{Jun 2025}{INRIA, Paris-Saclay}{%
+  Research visit in the group of Dr. Marc-oliver Renou.
+}
+\cventryblue{Aug 2022}{IIT Madras, Chennai}{%
+  Project associate job in the Center For Quantum Information, Communication And Computing under Dr. Pradeep Sarvepalli.
+}
+\cventryblue{Feb-Jul 2021}{ISI Kolkata}{Research visit in the group of Prof. Guruprasad Kar and Dr. Ramij Rahaman.}
+\cventryblue{Summer 2018}{IIT Kharagpur}{%
+  Research visit in the group of Prof. Anushree Roy.
+}
+\cventryblue{Summer 2019}{IIIT Hyderabad}{Research visit in the group of Dr. Prabhakar Bhimalapuram.}
+% ---------- Teaching Assistant-ship ----------
+\section*{Teaching Assistant}
+
+\cventryblue{Spring 2022}{Quantum Information Processing}{%
+  \textit{Motivation and introduction, Quantum Algorithms and computation}
+}
+
+% ---------- Extra-curricular Activities ----------
+\section*{Extra-curricular Activities \& Leadership}
+
+\cventryblue{Web-Development}{Developed Websites or Apps for following:}{%
+  \textnormal{Inquivesta 2019, Annual fest of IISER Kolkata\newline
+  CR and Admin portal of Inquivesta 2020\newline
+  IICM 2021 (Part of it)}
+}
+
+\cventryblue{Initiatives}{Started the Coding and Designing Club of IISER Kolkata}{%
+  \textnormal{Created the charter of the club. Formed the Council of the Office
+  Bearers of the Club. Created the social media platform for the club.}
+}
+
+\end{document}
