@@ -17,18 +17,58 @@
         .line-2 { animation-delay: 3.5s; color: red; }
         .line-3 { animation-delay: 7s; color: blue; }
         .line-4 { animation-delay: 9s; color: blue; }
+        .line-5 { animation-delay: 10s; color: green; }
 
         @keyframes fadeIn {
             to {
                 opacity: 1;
             }
         }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        .blink {
+            animation: blink 1s linear infinite;
+        }
+
+        #start-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px 40px;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 100;
+        }
+        #content {
+            display: none;
+        }
     </style>
 </head>
 <body>
-    <div class="line line-1">Hi there, you are being under arrest for accepting bribe.</div>
-    <div class="line line-2">Officer Dimitri and Abhishek are on their way for the arrest, reveal your location.</div>
-    <div class="line line-3">Kidding, you are under arrest for being too good :)</div>
-    <div class="line line-4">Happy birthday! :):).</div>
+    <button id="start-button">Open Gift</button>
+
+    <div id="content">
+        <audio id="anthem" src="../img/communist.mp3"></audio>
+        <div class="line line-1">Hi there, you are being under arrest for accepting bribe.</div>
+        <div class="line line-2">Officer Dimitri and Abhishek are on their way for the arrest, reveal your location.</div>
+        <div class="line line-3">Kidding, you are under arrest for being too good :)</div>
+        <div class="line line-4">Happy birthday! :):).</div>
+        <div class="line line-5"><img src="../img/communist.jpg" class="blink" alt="" width="200em">    <div> Flag Idea : Only <span style="color: red;">Dimitri</span></div></div>
+    </div>
+
+    <script>
+        document.getElementById('start-button').addEventListener('click', function() {
+            this.style.display = 'none';
+            document.getElementById('content').style.display = 'block';
+            
+            setTimeout(() => {
+                document.getElementById('anthem').play().catch(e => console.log('Audio play back failed:', e));
+            }, 12000);
+        });
+    </script>
 </body>
 </html>
