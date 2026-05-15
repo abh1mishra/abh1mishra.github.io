@@ -33,15 +33,19 @@
             animation: blink 1s linear infinite;
         }
 
-        #start-button {
+        #landing {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 100;
+        }
+        #start-button {
             padding: 20px 40px;
             font-size: 24px;
             cursor: pointer;
-            z-index: 100;
+            margin-bottom: 15px;
         }
         #content {
             display: none;
@@ -49,7 +53,10 @@
     </style>
 </head>
 <body>
-    <button id="start-button">Open Gift</button>
+    <div id="landing">
+        <button id="start-button">Open Gift</button>
+        <div style="font-family: sans-serif; font-size: 18px; color: #555;">*Volume up for bestest experience</div>
+    </div>
 
     <div id="content">
         <audio id="anthem" src="../img/communist.mp3"></audio>
@@ -62,7 +69,7 @@
 
     <script>
         document.getElementById('start-button').addEventListener('click', function() {
-            this.style.display = 'none';
+            document.getElementById('landing').style.display = 'none';
             document.getElementById('content').style.display = 'block';
             
             setTimeout(() => {
